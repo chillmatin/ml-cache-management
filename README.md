@@ -62,18 +62,12 @@ ml-cache-management/
 │   └── PROJECT_COMPLETE.md       # Implementation checklist
 │
 ├── docs/                         # Documentation
-│   ├── ieee/                     # IEEE-style papers
-│   │   ├── paper.tex             # Conference paper (5 pages)
-│   │   ├── report.tex            # Full project report (15 pages)
-│   │   ├── proposal.tex          # Original proposal
-│   │   └── gannt.tex             # Gantt chart
-│   │
-│   └── guides/                   # Implementation guides
-│       ├── PRESENTATION_GUIDE.md # 15-slide presentation outline
-│       ├── PRESENTATION_CHECKLIST.md # Day-of checklist
-│       ├── REPORT_GUIDE.md       # Report writing guide
-│       └── LATEX_DOCUMENTS_README.md # LaTeX doc guide
-│
+│   └── ieee/                     # IEEE-style papers
+│       ├── paper.tex             # Conference paper (5 pages)
+│       ├── report.tex            # Full project report (15 pages)
+│       ├── proposal.tex          # Original proposal
+│       └── gannt.tex             # Gantt chart
+│       
 ├── assets/                       # Results and media
 │   ├── results/                  # Experimental results
 │   │   ├── *.png                 # 7 publication-quality plots
@@ -82,7 +76,6 @@ ml-cache-management/
 │   │
 │   └── Matin-Huseynzade-Network-Proposal.pdf
 │
-├── tests/                        # Unit tests (extensible)
 │
 ├── README.md                     # This file
 ├── .gitignore                    # Git ignore rules
@@ -147,23 +140,6 @@ Traffic = Zipfian(α=1.2) + Poisson(λ=10) + Temporal Patterns
 - `assets/results/final_results.json` - Raw metrics
 - `assets/results/ml_metrics.json` - Model performance
 - `assets/results/batch_results.json` - Batch statistics
-
-## 🎓 Documentation
-
-### For Presentations
-- **Start here**: [docs/guides/PRESENTATION_GUIDE.md](docs/guides/PRESENTATION_GUIDE.md) - 15-slide outline
-- **Before presentation**: [docs/guides/PRESENTATION_CHECKLIST.md](docs/guides/PRESENTATION_CHECKLIST.md)
-- **Quick reference**: [src/quick_reference.py](src/quick_reference.py) - Key metrics
-
-### For Reports
-- **Paper**: [docs/ieee/paper.tex](docs/ieee/paper.tex) - Conference paper (5 pages)
-- **Report**: [docs/ieee/report.tex](docs/ieee/report.tex) - Full documentation (15 pages)
-- **Guide**: [docs/guides/REPORT_GUIDE.md](docs/guides/REPORT_GUIDE.md)
-
-### For Code Review
-- **Architecture**: See module docstrings in `src/`
-- **Design decisions**: [src/PROJECT_COMPLETE.md](src/PROJECT_COMPLETE.md)
-- **LaTeX info**: [docs/guides/LATEX_DOCUMENTS_README.md](docs/guides/LATEX_DOCUMENTS_README.md)
 
 ## 💻 Usage Examples
 
