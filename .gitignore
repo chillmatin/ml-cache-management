@@ -61,3 +61,5 @@ Thumbs.db
 
 # Project docs (untracked guides)
 docs/guides/
+
+*__pycache__/*
