@@ -220,7 +220,7 @@ Random seeds are fixed in all simulators for deterministic results.
 If you use this code in your research, please cite:
 
 ```bibtex
-@project{cache2024,
+@project{cache2026,
   title={Machine Learning-Based Cache Management for Edge Networks},
   author={Huseynzade, Matin},
   year={2026},
