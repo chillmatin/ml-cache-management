@@ -117,18 +117,6 @@ If you find a bug, please create an issue with:
 - Expected behavior
 - Your environment (Python version, OS, dependencies)
 
-## Citation
-
-If you use this code in your research:
-
-```bibtex
-@project{cache2024,
-  title={Machine Learning-Based Cache Management for Edge Networks},
-  author={Huseynzade, Matin},
-  year={2024},
-  institution={Izmir Institute of Technology}
-}
-```
 
 ## Questions?
 

@@ -148,7 +148,7 @@ def plot_feature_importance(ml_metrics, save_path='results/feature_importance.pn
     values = [values[i] for i in sorted_idx]
     
     plt.figure(figsize=(10, 6))
-    colors = plt.cm.viridis(np.linspace(0.3, 0.9, len(features)))
+    colors = plt.get_cmap('viridis')(np.linspace(0.3, 0.9, len(features)))
     bars = plt.barh(features, values, color=colors, alpha=0.8, edgecolor='black')
     
     for i, (bar, val) in enumerate(zip(bars, values)):

@@ -68,7 +68,7 @@ class CacheSimulator:
     
     def set_predictor(self, predictor):
         """Set ML predictor for MLCache policy."""
-        if hasattr(self.cache, 'predictor'):
+        if self.cache is not None and hasattr(self.cache, 'predictor'):
             self.cache.predictor = predictor
 
 
