@@ -28,7 +28,7 @@ A research implementation of machine learning-driven cache replacement policies 
 
 ```bash
 # Clone repository
-git clone <your-repo-url>
+git clone https://github.com/chillmatin/ml-cache-management
 cd ml-cache-management
 
 # Install dependencies
