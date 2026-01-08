@@ -76,12 +76,16 @@ class EnhancedMLCache(CachePolicy):
         
         # Predict re-access probability for each item
         try:
-            predictions = self.predictor.predict_proba(features_list)
-            reaccess_probs = [pred[1] for pred in predictions]
-            
-            # Evict item with lowest probability of being accessed
-            evict_idx = reaccess_probs.index(min(reaccess_probs))
-            return keys_list[evict_idx]
+            if self.predictor is not None:
+                predictions = self.predictor.predict_proba(features_list)
+                reaccess_probs = [pred[1] for pred in predictions]
+                
+                # Evict item with lowest probability of being accessed
+                evict_idx = reaccess_probs.index(min(reaccess_probs))
+                return keys_list[evict_idx]
+            else:
+                # Fallback to LRU if no predictor
+                return min(keys_list, key=lambda k: self.cache[k])
         except:
             # Fallback to LRU on any error
             return min(keys_list, key=lambda k: self.cache[k])

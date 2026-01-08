@@ -1,0 +1,163 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\usepackage{hyperref}
+\usepackage{qrcode}
+\usepackage{graphicx}
+
+% Font: sans-serif for legibility (lecture principle)
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+% High contrast: black on white (lecture principle)
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{itemize item}{fg=blue}
+
+\title[ML Cache for Edge]{Machine Learning-Based Cache Management for Edge Networks}
+\author{Matin Huseynzade}
+\institute{Izmir Institute of Technology}
+\date{January 2026}
+
+\begin{document}
+
+% === FRAME 1: TITLE ===
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% === FRAME 2: THE CHALLENGE ===
+\begin{frame}{The Challenge}
+  Edge caches serve bursty workloads with limited capacity.
+  
+  \vspace{0.2cm}
+  Traditional policies:
+  \begin{itemize}
+    \item LRU: blind to frequency patterns
+    \item LFU: blind to temporal shifts
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  \textbf{Goal:} Predict re-access using machine learning.
+\end{frame}
+
+% === FRAME 3: OUR APPROACH ===
+\begin{frame}{Our Approach}
+  Combine ML with cache heuristics.
+  
+  \vspace{0.2cm}
+  \begin{enumerate}
+    \item Extract 8 temporal features
+    \item Train Gradient Boosting
+    \item Predict re-access probability
+    \item Hybrid eviction policy
+  \end{enumerate}
+  
+  \vspace{0.2cm}
+  \textbf{Key insight:} Temporal patterns matter most (55\% importance).
+\end{frame}
+
+% === FRAME 4: ML MODEL ===
+\begin{frame}{ML Model}
+  \begin{columns}[t]
+    \column{0.6\textwidth}
+    \textbf{Algorithm:} Gradient Boosting
+    
+    \textbf{Estimators:} 200, depth 5
+    
+    \textbf{Training:} First 50\% of trace
+    
+    \textbf{Accuracy:} 83.3\%
+    
+    \column{0.4\textwidth}
+    \textbf{8 Features:}
+    \begin{itemize}
+      \item Recency
+      \item Frequency
+      \item Inter-arrival time
+      \item Size
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% === FRAME 5: EXPERIMENTAL SETUP ===
+\begin{frame}{Experimental Setup}
+  \textbf{Workload:} Zipf $(\alpha = 1.2)$ + Poisson arrivals
+  
+  \vspace{0.2cm}
+  \begin{itemize}
+    \item 1,000 content objects
+    \item 100-unit cache capacity
+    \item 5 independent runs
+    \item Statistical validation
+  \end{itemize}
+\end{frame}
+
+% === FRAME 6: PERFORMANCE RESULTS (WITH FIGURE) ===
+\begin{frame}{Performance Results}
+  \centering
+  \includegraphics[width=0.85\textwidth]{../../assets/results/final_hit_rate_comparison.png}
+  
+  \vspace{0.2cm}
+  \small LFU: 43.3\%, LRU: 34.6\%, ML-Cache: 31.0\%
+\end{frame}
+
+% === FRAME 7: FEATURE IMPORTANCE (WITH FIGURE) ===
+\begin{frame}{Feature Importance}
+  \centering
+  \includegraphics[width=0.85\textwidth]{../../assets/results/feature_importance.png}
+  
+  \vspace{0.2cm}
+  \small Mean inter-arrival time (55.5\%) most predictive.
+\end{frame}
+
+% === FRAME 8: KEY FINDINGS ===
+\begin{frame}{Key Findings}
+  \begin{enumerate}
+    \item LFU dominates Zipf (25.7\% over LRU)
+    \item ML: 83.3\% prediction accuracy
+    \item Temporal patterns critical
+    \item Hybrid approach promising
+  \end{enumerate}
+\end{frame}
+
+% === FRAME 9: FUTURE WORK ===
+\begin{frame}{Future Work}
+  \textbf{Short-term:}
+  \begin{itemize}
+    \item Hybrid ML+LFU policy
+    \item Online learning
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  \textbf{Long-term:}
+  \begin{itemize}
+    \item Real CDN traces
+    \item ns-3 integration
+    \item Distributed cache tiers
+  \end{itemize}
+\end{frame}
+
+% === FRAME 10: REPOSITORY ===
+\begin{frame}{Access the Code}
+  \begin{columns}[c]
+    \column{0.55\textwidth}
+    GitHub Repository:
+    
+    \vspace{0.3cm}
+    \href{https://github.com/chillmatin/ml-cache-management}{github.com/chillmatin/\\ml-cache-management}
+    
+    \vspace{0.3cm}
+    \small Code, experiments, papers
+    
+    \column{0.35\textwidth}
+    \centering
+    \qrcode[height=1.5in]{https://github.com/chillmatin/ml-cache-management}
+  \end{columns}
+\end{frame}
+
+\end{document}
